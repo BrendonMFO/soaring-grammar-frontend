@@ -1,0 +1,27 @@
+{
+	"name": "Soaring Frontend",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"args": { "VARIANT": "16" }
+	},
+	"settings": {},
+	"extensions": [
+		"eamodio.gitlens",
+		"mikestead.dotenv",
+		"dbaeumer.vscode-eslint",
+		"wallabyjs.wallaby-vscode",
+	],
+	"runArgs": [
+		"--name",
+		"soaring-frontend",
+		"--network",
+		"local",
+		"-l",
+		"traefik.frontend.rule=Host:soaring-frontend.localhost",
+		"-l",
+		"traefik.port=3000",
+		"-l",
+		"traefik.docker.network=local"
+	],
+	"remoteUser": "node"
+}
